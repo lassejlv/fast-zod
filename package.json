@@ -1,0 +1,39 @@
+{
+  "name": "fast-zod",
+  "version": "1.0.0",
+  "description": "A high-performance schema validation library inspired by Zod v4",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target=node",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "test": "bun test",
+    "bench": "bun run ./benchmark/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0",
+    "zod": "^3.24.0"
+  },
+  "keywords": [
+    "schema",
+    "validation",
+    "typescript",
+    "zod",
+    "fast"
+  ],
+  "license": "MIT"
+}
