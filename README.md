@@ -30,58 +30,60 @@ const user = userSchema.parse({
 
 ## Benchmark
 
-**3.23x faster than Zod on average.**
+**1.15x faster than Zod on average.**
 
 ```
+➜  zod-clone git:(main) ✗ bun run benchmark/index.ts
 ============================================================
 Benchmark: fast-zod vs zod
 Iterations: 100,000
 ============================================================
 
 String Parsing:
-  fast-zod: 20.96 ns/op
-  zod:      63.90 ns/op
-  speedup:  3.05x
+  fast-zod: 22.72 ns/op
+  zod:      34.24 ns/op
+  speedup:  1.51x (fast-zod faster)
 
 Number Parsing:
-  fast-zod: 14.22 ns/op
-  zod:      48.30 ns/op
-  speedup:  3.40x
+  fast-zod: 24.93 ns/op
+  zod:      22.78 ns/op
+  speedup:  0.91x (zod faster)
 
 Object Parsing (3 fields):
-  fast-zod: 99.14 ns/op
-  zod:      220.38 ns/op
-  speedup:  2.22x
+  fast-zod: 104.85 ns/op
+  zod:      53.32 ns/op
+  speedup:  0.51x (zod faster)
 
 Array Parsing (10 elements):
-  fast-zod: 188.80 ns/op
-  zod:      264.12 ns/op
-  speedup:  1.40x
+  fast-zod: 181.33 ns/op
+  zod:      96.96 ns/op
+  speedup:  0.53x (zod faster)
 
 Nested Object Parsing:
-  fast-zod: 439.74 ns/op
-  zod:      975.15 ns/op
-  speedup:  2.22x
+  fast-zod: 369.92 ns/op
+  zod:      145.56 ns/op
+  speedup:  0.39x (zod faster)
 
 safeParse (object):
-  fast-zod: 100.42 ns/op
-  zod:      160.22 ns/op
-  speedup:  1.60x
+  fast-zod: 97.65 ns/op
+  zod:      35.72 ns/op
+  speedup:  0.37x (zod faster)
 
 Union Parsing (string | number):
-  fast-zod: 18.43 ns/op
-  zod:      106.48 ns/op
-  speedup:  5.78x
+  fast-zod: 19.23 ns/op
+  zod:      36.40 ns/op
+  speedup:  1.89x (fast-zod faster)
 
 String with validations (min, max, regex):
-  fast-zod: 22.19 ns/op
-  zod:      136.38 ns/op
-  speedup:  6.15x
+  fast-zod: 24.95 ns/op
+  zod:      77.01 ns/op
+  speedup:  3.09x (fast-zod faster)
 
 ============================================================
 Summary:
 ============================================================
-  Average speedup: 3.23x
+  Average speedup: 1.15x
+  Result: fast-zod is 1.15x faster than zod on average
 ```
 
 Run benchmarks yourself:
